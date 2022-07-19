@@ -1,0 +1,149 @@
+.wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 40px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+
+  text-decoration: none;
+  margin: 0 0 0 35px;
+
+  img {
+    width: 40px;
+    height: 40px;
+    margin: 0 20px 0 0;
+  }
+
+  div {
+    display: flex;
+    flex-direction: column;
+
+    h1 {
+      margin: 0 0 5px 0;
+
+      font-family: "Arial";
+      font-style: normal;
+      font-weight: 800;
+      font-size: 24px;
+      line-height: 29px;
+      letter-spacing: 0.01em;
+      text-transform: uppercase;
+
+      color: #181818;
+    }
+
+    p {
+      font-family: "Arial";
+      font-style: normal;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 19px;
+
+      color: #7b7b7b;
+    }
+  }
+}
+
+.right {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.buttonWrapper {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.cartButton {
+  transition: all .2s linear;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  min-width: 150px;
+  height: 50px;
+
+  background: #FE5F1E;
+  border: 1px solid #FE5F1E;
+  border-radius: 30px;
+
+  .price {
+    min-width: 79px;
+
+    font-family: "Arial";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 19px;
+
+    color: #FFFFFF;
+  }
+
+  .amount {
+    display: flex;
+    justify-content: center;
+
+    width: 70px;
+
+    svg {
+      width: 16px;
+      height: 16px;
+      margin: 0 8px 0 0;
+
+      fill: #ffffff;
+      stroke: #ffffff;
+    }
+
+    span {
+      font-family: "Arial";
+      font-style: normal;
+      font-weight: 700;
+      font-size: 16px;
+      line-height: 19px;
+
+      color: #FFFFFF;
+    }
+  }
+
+  &:before {
+    content: "";
+    position: absolute;
+    top: 12.5px;
+    right: 70px;
+
+    height: 25px;
+    width: 1px;
+
+    background: rgba(255, 255, 255, 0.25);
+  }
+
+  &:hover {
+    background: #ffffff;
+
+    .price {
+      color: #FE5F1E;
+    }
+
+    .amount {
+      svg {
+        fill: #FE5F1E;
+        stroke: #FE5F1E;
+      }
+
+      span {
+        color: #FE5F1E;
+      }
+    }
+
+    &:before {
+      background: rgba(254, 95, 30, 1);
+    }
+  }
+}

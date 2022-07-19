@@ -1,0 +1,146 @@
+.wrapper {
+  width: 280px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  font-family: "Arial";
+}
+
+.image {
+  width: 260px;
+}
+
+.title {
+  width: 100%;
+  font-size: 20px;
+  font-weight: 900;
+  margin-bottom: 20px;
+}
+
+.selectors {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+
+  background-color: #f3f3f3;
+  border-radius: 10px;
+  padding: 6px;
+
+  ul {
+    display: flex;
+    flex: 1;
+
+    margin: 0;
+    padding: 0;
+    list-style: none;
+
+    &:first-of-type {
+      margin-bottom: 6px;
+    }
+
+    li {
+      text-align: center;
+      padding: 8px;
+      flex: 1;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 14px;
+
+      &.active {
+        background: #ffffff;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+        border-radius: 5px;
+        cursor: auto;
+      }
+    }
+  }
+}
+
+.bottom {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.price {
+  font-weight: bold;
+  font-size: 22px;
+  line-height: 27px;
+  letter-spacing: 0.015em;
+}
+
+.button {
+  height: 40px;
+  display: flex;
+  align-items: center;
+
+  transition: all .2s ease-in-out;
+  background: #FE5F1E;
+  border: 1px solid #FE5F1E;
+  border-radius: 30px;
+  padding: 0 18px;
+
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 19px;
+
+  span {
+    text-transform: uppercase;
+    color: #ffffff;
+    margin: 0 7px 0 0;
+  }
+
+  svg {
+    margin: 0 7px 0 0;
+  }
+
+  i {
+    width: 22px;
+    height: 22px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-weight: 700;
+    font-size: 13px;
+    line-height: 16px;
+    font-style: normal;
+
+    border-radius: 50px;
+    color: #FE5F1E;
+    background-color: #ffffff;
+  }
+
+  &:hover {
+    background-color: #fff;
+    svg {
+      fill: #FE5F1E;
+    }
+    span {
+      color: #FE5F1E;
+    }
+    i {
+      color: #ffffff;
+      background-color: #FE5F1E;
+    }
+  }
+}
+
+@media screen and (max-width: 720px) {
+  .pizzaBlock {
+    width: 70%;
+    min-width: 260px;
+  }
+}
+
+@media screen and (max-width: 540px) {
+  .pizzaBlock {
+    width: 100%;
+  }
+}

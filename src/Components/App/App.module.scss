@@ -1,0 +1,30 @@
+@import "nullStyles";
+
+body {
+  padding: 40px 0 0;
+
+  background: #FFDF8C;
+}
+
+.page {
+  width: 100%;
+  max-width: 1340px;
+  margin: 0 auto;
+
+  background: #FFFFFF;
+  box-shadow: 0 15px 20px rgba(0, 0, 0, 0.03);
+  border-radius: 10px;
+}
+
+.line {
+  background: #F7F7F7;
+  border: none;
+
+  height: 2px;
+  width: calc(100% - 24px);
+  margin: 0 auto;
+}
+
+.content {
+  padding: 40px 60px;
+}

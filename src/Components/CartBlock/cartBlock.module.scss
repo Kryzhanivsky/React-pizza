@@ -1,0 +1,158 @@
+.wrapper {
+  width: 100%;
+  padding: 30px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.leftSide {
+  flex: 1;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+
+  img {
+    width: 80px;
+    height: 80px;
+    margin: 0 15px 0 0;
+  }
+}
+
+.description {
+  h1 {
+    font-family: 'Arial';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 22px;
+    line-height: 27px;
+
+    letter-spacing: 0.01em;
+
+    color: #000000;
+  }
+
+  p {
+    font-family: 'Arial';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 22px;
+
+    letter-spacing: 0.01em;
+
+    color: #8D8D8D;
+
+  }
+}
+
+.rightSide {
+  flex: 1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.amount {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  b {
+    font-size: 22px;
+    margin: 0 12px;
+  }
+}
+
+.amount_button {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background: transparent;
+  border-radius: 50%;
+  border: 2px solid #FE5F1E;
+  transition: all 0.2s linear;
+
+  svg {
+    stroke: #FE5F1E;
+    fill: #FE5F1E;
+  }
+
+  &:hover {
+    background: #FE5F1E;
+
+    svg {
+      stroke: #ffffff;
+      fill: #ffffff;
+    }
+  }
+}
+
+.amount_button_disabled {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background: transparent;
+  border-radius: 50%;
+  border: 2px solid #d7d7d7;
+  transition: all 0.2s linear;
+
+  svg {
+    stroke: #d7d7d7;
+    fill: #d7d7d7;
+  }
+}
+
+.price {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+
+  b {
+    font-weight: bold;
+    font-size: 22px;
+    letter-spacing: 0.01em;
+  }
+}
+
+.deleteBtn {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+  background: transparent;
+  border: 1px solid #d7d7d7;
+  transition: all 0.2s linear;
+
+  svg {
+    fill: #d7d7d7;
+    stroke: #d7d7d7;
+    transform: rotate(45deg);
+  }
+
+  &:hover,
+  &:active {
+    border-color: #2a2a2a;
+    background-color: #2a2a2a;
+
+    svg {
+      fill: #ffffff;
+      stroke: #ffffff;
+    }
+  }
+}

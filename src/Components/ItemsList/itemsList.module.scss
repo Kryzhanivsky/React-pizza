@@ -1,0 +1,41 @@
+.list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-gap: 50px 20px;
+}
+
+.message {
+  height: 350px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  font-family: "Arial";
+
+  h1 {
+    margin: 0 0 25px 0;
+
+    font-style: normal;
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 39px;
+
+    letter-spacing: 0.01em;
+
+    color: #000000;
+  }
+
+  p {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 145.4%;
+
+    text-align: center;
+    letter-spacing: 0.01em;
+
+    color: #777777;
+  }
+}
