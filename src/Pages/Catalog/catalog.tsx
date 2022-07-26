@@ -9,7 +9,7 @@ import { useAppDispatch } from "../../Redux/hooks";
 import { fetchCartItems } from "../../Redux/Slices/CartSlice";
 
 const Catalog = () => {
-  const [isOpen, setIsOpen] = useState(true);
+  const [isOpen, setIsOpen] = useState(false);
   const dispatch = useAppDispatch();
 
   useEffect(() => {

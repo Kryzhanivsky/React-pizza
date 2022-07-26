@@ -132,15 +132,8 @@
   }
 }
 
-@media screen and (max-width: 720px) {
-  .pizzaBlock {
-    width: 70%;
-    min-width: 260px;
-  }
-}
-
-@media screen and (max-width: 540px) {
-  .pizzaBlock {
-    width: 100%;
+@media screen and (max-width: 576px) {
+  .wrapper {
+    width: calc(100% - 20px);
   }
 }
