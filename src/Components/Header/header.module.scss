@@ -55,13 +55,7 @@
   align-items: center;
 }
 
-.buttonWrapper {
-  text-decoration: none;
-  cursor: pointer;
-}
-
 .cartButton {
-  transition: all .2s linear;
   position: relative;
   display: flex;
   justify-content: space-between;
@@ -69,13 +63,18 @@
 
   min-width: 150px;
   height: 50px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.2s linear;
 
-  background: #FE5F1E;
-  border: 1px solid #FE5F1E;
+  background: #fe5f1e;
+  border: 1px solid #fe5f1e;
   border-radius: 30px;
 
   .price {
-    min-width: 79px;
+    display: block;
+    text-align: center;
+    width: 50%;
 
     font-family: "Arial";
     font-style: normal;
@@ -83,14 +82,13 @@
     font-size: 16px;
     line-height: 19px;
 
-    color: #FFFFFF;
+    color: #ffffff;
   }
 
   .amount {
     display: flex;
     justify-content: center;
-
-    width: 70px;
+    width: 50%;
 
     svg {
       width: 16px;
@@ -108,7 +106,7 @@
       font-size: 16px;
       line-height: 19px;
 
-      color: #FFFFFF;
+      color: #ffffff;
     }
   }
 
@@ -116,7 +114,7 @@
     content: "";
     position: absolute;
     top: 12.5px;
-    right: 70px;
+    right: 50%;
 
     height: 25px;
     width: 1px;
@@ -128,22 +126,60 @@
     background: #ffffff;
 
     .price {
-      color: #FE5F1E;
+      color: #fe5f1e;
     }
 
     .amount {
       svg {
-        fill: #FE5F1E;
-        stroke: #FE5F1E;
+        fill: #fe5f1e;
+        stroke: #fe5f1e;
       }
 
       span {
-        color: #FE5F1E;
+        color: #fe5f1e;
       }
     }
 
     &:before {
       background: rgba(254, 95, 30, 1);
+    }
+  }
+}
+
+@media screen and (max-width: 992px) {
+  .wrapper {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .logo {
+    margin: 0 0 20px 0;
+  }
+
+  .right {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .wrapper {
+    padding: 40px 15px;
+  }
+
+  .cartButton {
+    justify-content: flex-end;
+    min-width: 74px;
+
+    .price {
+      display: none;
+    }
+
+    .amount {
+      width: 100%;
+    }
+
+    &:before {
+      display: none;
     }
   }
 }

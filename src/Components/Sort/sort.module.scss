@@ -61,8 +61,21 @@
   }
 }
 
-@media screen and (max-width: 1020px) {
+@media screen and (max-width: 992px) {
   .sort {
-    margin: 0 0 0 10px;
+    position: static;
+    padding: 15px 10px 0;
+    background: #ffffff;
+    max-width: 280px;
+    width: 100%;
+
+    &_popup {
+      position: static;
+      margin: 0;
+      box-shadow: none;
+      border-radius: 0;
+      padding: 10px 0;
+      width: 100%;
+    }
   }
 }

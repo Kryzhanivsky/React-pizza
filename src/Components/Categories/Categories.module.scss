@@ -34,4 +34,29 @@
   }
 }
 
+@media screen and (max-width: 992px) {
+  .wrapper {
+    width: 100%;
+    max-width: 280px;
+    flex-direction: column;
+
+    li {
+      border-radius: 0;
+      width: 100%;
+      text-align: left;
+
+      &:hover {
+
+      }
+
+      &.active {
+
+      }
+    }
+
+    li:not(:last-child) {
+
+    }
+  }
+}
 

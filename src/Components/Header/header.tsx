@@ -23,8 +23,8 @@ const Header: FC = React.memo(() => {
         <div className={styles.right}>
           <Search />
 
-          <Link to="/cart" className={styles.buttonWrapper}>
-            <button className={styles.cartButton}>
+
+            <Link to="/cart" className={styles.cartButton}>
               <span className={styles.price}>{totalPrice} $</span>
               <div className={styles.amount}>
                 <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -34,8 +34,8 @@ const Header: FC = React.memo(() => {
                 </svg>
                 <span>{amount}</span>
               </div>
-            </button>
-          </Link>
+            </Link>
+
         </div>
       )}
     </div>

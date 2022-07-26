@@ -8,15 +8,17 @@ const Search: FC = () => {
   const { searchValue } = useAppSelector((state) => state.catalog);
   const dispatch = useAppDispatch();
   const inputRef = React.useRef<HTMLInputElement>(null);
+  const [searchTerm, setSearchTerm] = useState('');
 
   const onClickClear = useCallback(() => {
     dispatch(setSearchValue(""));
+    setSearchTerm("");
     if (inputRef.current) {
       inputRef.current.focus();
     }
   }, []);
 
-  const [searchTerm, setSearchTerm] = useState('');
+
 
   const updateSearchValue = React.useCallback(
     debounce((value) => {
