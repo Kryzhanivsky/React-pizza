@@ -109,11 +109,9 @@ const Cart = () => {
       <div className={styles.cart_bottom}>
         <div className={styles.cart_bottom_details}>
           <span>
-            {" "}
             Total pizzas: <b>{amount} шт.</b>{" "}
           </span>
           <span>
-            {" "}
             Order price: <b>{totalPrice} ₽</b>{" "}
           </span>
         </div>

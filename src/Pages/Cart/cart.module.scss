@@ -75,6 +75,12 @@
   &:hover span {
     color: #373737;
   }
+
+  @media screen and (max-width: 576px) {
+    span {
+      display: none;
+    }
+  }
 }
 
 .content_items {
@@ -88,11 +94,7 @@
 }
 
 .cart_bottom_details {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-  -ms-flex-pack: justify;
   justify-content: space-between;
 
   span {
@@ -102,12 +104,21 @@
       color: #fe5f1e;
     }
   }
+
+  @media screen and (max-width: 576px) {
+    flex-direction: column;
+  }
 }
 
 .bottom_buttons {
   display: flex;
   justify-content: space-between;
   margin-top: 40px;
+
+  @media screen and (max-width: 576px) {
+    flex-direction: column-reverse;
+    align-items: center;
+  }
 }
 
 .goBack_btn {
@@ -180,5 +191,9 @@
     span {
       color: #ffffff;
     }
+  }
+
+  @media screen and (max-width: 576px) {
+    margin: 0 0 15px 0;
   }
 }
