@@ -1,7 +1,7 @@
 import React, { FC } from "react";
 import { CartItem } from "../../Redux/interfaces&types";
 import styles from "./cartBlock.module.scss";
-import { decrementItem, deleteItem, incrementItem } from "../../Redux/Slices/CartSlice";
+import { decrement, deleteItem, increment } from "../../Redux/Slices/CartSlice";
 import { useAppDispatch } from "../../Redux/hooks";
 
 interface ICartItemProps {
@@ -22,7 +22,16 @@ const CartBlock: FC<ICartItemProps> = ({ item }) => {
       </div>
       <div className={styles.rightSide}>
         <div className={styles.amount}>
-          <button className={item.count <= 1 ? styles.amount_button_disabled : styles.amount_button} onClick={() => {dispatch(decrementItem(item))}}>
+          <button
+            className={
+              item.count <= 1
+                ? styles.amount_button_disabled
+                : styles.amount_button
+            }
+            onClick={() => {
+              dispatch(decrement(item));
+            }}
+          >
             <svg
               width="10"
               height="10"
@@ -34,7 +43,10 @@ const CartBlock: FC<ICartItemProps> = ({ item }) => {
             </svg>
           </button>
           <b>{item.count}</b>
-          <button className={styles.amount_button} onClick={() => dispatch(incrementItem(item))}>
+          <button
+            className={styles.amount_button}
+            onClick={() => dispatch(increment(item))}
+          >
             <svg
               width="10"
               height="10"
@@ -50,7 +62,10 @@ const CartBlock: FC<ICartItemProps> = ({ item }) => {
         <div className={styles.price}>
           <b>{item.price * item.count} $</b>
         </div>
-        <button className={styles.deleteBtn} onClick={() => dispatch(deleteItem(item))}>
+        <button
+          className={styles.deleteBtn}
+          onClick={() => dispatch(deleteItem(item))}
+        >
           <svg
             width="10"
             height="10"

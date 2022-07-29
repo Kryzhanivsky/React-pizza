@@ -30,7 +30,13 @@ const ItemsList: FC = () => {
 
   useEffect(() => {
     dispatch(fetchItems());
-  }, [currentPage, sortParam.value, sortParam.order, activeCategory, searchValue]);
+  }, [
+    currentPage,
+    sortParam.value,
+    sortParam.order,
+    activeCategory,
+    searchValue,
+  ]);
 
   return (
     <div className={styles.list}>

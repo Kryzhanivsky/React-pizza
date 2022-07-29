@@ -9,12 +9,12 @@ import { useAppDispatch } from "../../Redux/hooks";
 import { fetchCartItems } from "../../Redux/Slices/CartSlice";
 
 const Catalog = () => {
-  const [isOpen, setIsOpen] = useState(false);
   const dispatch = useAppDispatch();
+  const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
     dispatch(fetchCartItems());
-  }, [dispatch]);
+  }, [])
 
   return (
     <>
@@ -30,7 +30,6 @@ const Catalog = () => {
           className={isOpen ? styles.top_active : styles.top}
           onClick={(e) => e.stopPropagation()}
         >
-
           <div className={styles.filters}>
             <h2>Categories</h2>
             <Categories />

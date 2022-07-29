@@ -1,4 +1,4 @@
-import React, { ChangeEvent, FC, useCallback, useState } from "react";
+import React, { FC, useCallback, useState } from "react";
 import styles from "./search.module.scss";
 import { useAppDispatch, useAppSelector } from "../../Redux/hooks";
 import { setSearchValue } from "../../Redux/Slices/CatalogSlice";
@@ -8,7 +8,7 @@ const Search: FC = () => {
   const { searchValue } = useAppSelector((state) => state.catalog);
   const dispatch = useAppDispatch();
   const inputRef = React.useRef<HTMLInputElement>(null);
-  const [searchTerm, setSearchTerm] = useState('');
+  const [searchTerm, setSearchTerm] = useState("");
 
   const onClickClear = useCallback(() => {
     dispatch(setSearchValue(""));
@@ -18,19 +18,17 @@ const Search: FC = () => {
     }
   }, []);
 
-
-
-  const updateSearchValue = React.useCallback(
+  const updateSearchValue = useCallback(
     debounce((value) => {
       dispatch(setSearchValue(value));
     }, 1000),
     []
   );
 
-  const onChangeHandler = useCallback((value:string) => {
+  const onChangeHandler = useCallback((value: string) => {
     setSearchTerm(value);
     updateSearchValue(value);
-  }, [])
+  }, []);
 
   return (
     <label className={styles.wrapper}>

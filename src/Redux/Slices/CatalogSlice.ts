@@ -1,5 +1,9 @@
 import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { ICatalogState, IPopupParams, IReceivedCatalogData } from "../interfaces&types";
+import {
+  ICatalogState,
+  IPopupParams,
+  IReceivedCatalogData,
+} from "../interfaces&types";
 import axios from "axios";
 
 const initialState: ICatalogState = {
@@ -10,29 +14,30 @@ const initialState: ICatalogState = {
   currentPage: 1,
   activeCategory: 0,
   searchValue: "",
-  sortParam: { param: "popularity (ASC)", value: "rating", order:"asc" },
+  sortParam: { param: "popularity (ASC)", value: "rating", order: "asc" },
 };
 
-export const fetchItems = createAsyncThunk<IReceivedCatalogData, undefined, {state: {catalog: ICatalogState}}>(
-  "catalog/fetchItems",
-  async (_, {getState}) => {
+export const fetchItems = createAsyncThunk<
+  IReceivedCatalogData,
+  undefined,
+  { state: { catalog: ICatalogState } }
+>("catalog/fetchItems", async (_, { getState }) => {
+  const response = await axios.get(
+    `https://62a08573a9866630f8112416.mockapi.io/items`,
+    {
+      params: {
+        limit: 12,
+        page: getState().catalog.currentPage,
+        sortBy: getState().catalog.sortParam.value,
+        order: getState().catalog.sortParam.order,
+        // category: getState().catalog.activeCategory,
+        title: getState().catalog.searchValue,
+      },
+    }
+  );
 
-    const response = await axios.get(
-      `https://62a08573a9866630f8112416.mockapi.io/items`, {
-        params: {
-          limit: 12,
-          page: getState().catalog.currentPage,
-          sortBy: getState().catalog.sortParam.value,
-          order: getState().catalog.sortParam.order,
-          // category: getState().catalog.activeCategory,
-          title: getState().catalog.searchValue,
-        }
-      }
-    );
-
-    return response.data as IReceivedCatalogData;
-  }
-);
+  return response.data as IReceivedCatalogData;
+});
 
 export const catalogSlice = createSlice({
   name: "catalog",
@@ -69,5 +74,10 @@ export const catalogSlice = createSlice({
   },
 });
 
-export const { setActiveCategory, setSortParam, setSearchValue, setCurrentPage } = catalogSlice.actions;
+export const {
+  setActiveCategory,
+  setSortParam,
+  setSearchValue,
+  setCurrentPage,
+} = catalogSlice.actions;
 export default catalogSlice.reducer;

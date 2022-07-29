@@ -5,21 +5,14 @@ import { useAppDispatch, useAppSelector } from "../../Redux/hooks";
 import CartBlock from "../../Components/CartBlock/cartBlock";
 import EmptyCart from "../EmptyCart/emptyCart";
 import { deleteAllItems, fetchCartItems } from "../../Redux/Slices/CartSlice";
-import Loader from "../../Components/Loader/loader";
 
 const Cart = () => {
-  const { items, totalPrice, amount, isLoading } = useAppSelector(
-    (state) => state.cart
-  );
   const dispatch = useAppDispatch();
+  const { items, totalPrice, amount } = useAppSelector((state) => state.cart);
 
   useEffect(() => {
     dispatch(fetchCartItems());
-  }, [dispatch]);
-
-  if (isLoading) {
-    return <Loader />;
-  }
+  }, []);
 
   if (items.length === 0) {
     return <EmptyCart />;
@@ -60,7 +53,10 @@ const Cart = () => {
           </svg>
           Cart
         </h2>
-        <button className={styles.cart_clear} onClick={() => dispatch(deleteAllItems())}>
+        <button
+          className={styles.cart_clear}
+          onClick={() => dispatch(deleteAllItems())}
+        >
           <svg
             width="20"
             height="20"

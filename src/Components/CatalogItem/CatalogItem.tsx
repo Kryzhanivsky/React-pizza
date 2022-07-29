@@ -11,9 +11,9 @@ interface CatalogItemState {
 const types = ["Thin", "Traditional"];
 
 const CatalogItem: FC<CatalogItemState> = ({ item }) => {
+  const dispatch = useAppDispatch();
   let amount = 0;
 
-  const dispatch = useAppDispatch();
   const foundItems = useAppSelector((state) =>
     state.cart.items.filter((obj) => obj.title === item.title)
   );

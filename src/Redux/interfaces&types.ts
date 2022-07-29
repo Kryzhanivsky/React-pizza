@@ -27,8 +27,6 @@ export interface ICartState {
   amount: number,
   totalPrice: number,
   items: CartItem[],
-  isLoading: boolean
-  error: string
 }
 
 export interface ICatalogState {
