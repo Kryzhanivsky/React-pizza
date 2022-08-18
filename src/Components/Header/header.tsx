@@ -19,9 +19,9 @@ const Header: FC = React.memo(() => {
         </div>
       </Link>
 
-      {location.pathname !== "/cart" && (
+      {location.pathname !== "/cart" && location.pathname !== "/payment" && (
         <div className={styles.right}>
-          <Search />
+          {location.pathname !== "/payment" && <Search />}
 
           <Link to="/cart" className={styles.cartButton}>
             <span className={styles.price}>{totalPrice} $</span>

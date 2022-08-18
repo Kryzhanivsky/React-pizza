@@ -1,0 +1,49 @@
+.fields {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+  flex-wrap: wrap;
+
+  border-radius: 20px;
+  padding: 20px 5px;
+  box-shadow: 0 0 30px #f0f0f0;
+
+  h3 {
+    margin: 0 0 10px 0;
+  }
+}
+
+.section {
+  width: 25%;
+
+  div {
+    display: flex;
+    flex-direction: column;
+  }
+
+  textarea {
+    width: 100%;
+    height: 100%;
+    resize: vertical;
+    outline: none;
+    padding: 5px;
+
+    font-family: "Arial";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+
+    color: #7b7b7b;
+    border: 1px solid #FFDF8C;
+    border-radius: 5px;
+    box-shadow: 0 0 30px #f0f0f0;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .section {
+    width: 100%;
+  }
+}

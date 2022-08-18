@@ -10,23 +10,23 @@ export type Item = {
 };
 
 export type CartItem = {
-  id?: string;
+  id: string;
   imageUrl: string;
   title: string;
   type: string;
   size: number;
   price: number;
-  count: number
-}
+  count: number;
+};
 
 export type popupClick = MouseEvent & {
   path: Node[];
-}
+};
 
 export interface ICartState {
-  amount: number,
-  totalPrice: number,
-  items: CartItem[],
+  amount: number;
+  totalPrice: number;
+  items: CartItem[];
 }
 
 export interface ICatalogState {
@@ -36,7 +36,7 @@ export interface ICatalogState {
   error: string;
   currentPage: number;
   activeCategory: number;
-  searchValue:string;
+  searchValue: string;
   sortParam: IPopupParams;
 }
 
@@ -45,13 +45,28 @@ export interface IReceivedCatalogData {
   amount: number;
 }
 
-export interface IReceivedCartData {
-  items: CartItem[];
-  amount: number;
-}
-
 export interface IPopupParams {
   param: string;
   value: string;
   order: string;
+}
+
+export interface IPaymentState {
+  data: string,
+  orders: CartItem[],
+}
+
+export interface IFormikValues {
+  name: string,
+  phoneNumber: string,
+  email: string,
+  street: string,
+  house: string,
+  entrance: string,
+  flat: string,
+  date: string,
+  time: string,
+  delivery: string,
+  payment: string,
+  comment: string,
 }

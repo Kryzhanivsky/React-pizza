@@ -11,6 +11,7 @@ interface CatalogItemState {
 const types = ["Thin", "Traditional"];
 
 const CatalogItem: FC<CatalogItemState> = ({ item }) => {
+  const { items } = useAppSelector(state => state.cart)
   const dispatch = useAppDispatch();
   let amount = 0;
 
@@ -28,6 +29,7 @@ const CatalogItem: FC<CatalogItemState> = ({ item }) => {
   const [activeSize, setActiveSize] = React.useState(0);
 
   const order: CartItem = {
+    id: (items.length + 1).toString(),
     imageUrl: item.imageUrl,
     title: item.title,
     type: types[activeType],

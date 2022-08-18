@@ -1,5 +1,6 @@
-import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { CartItem, ICartState } from "../interfaces&types";
+import axios from "axios";
 
 const initialState: ICartState = {
   amount: 0,
@@ -10,6 +11,21 @@ const initialState: ICartState = {
 const toCompare = (a: CartItem, b: CartItem) => {
   return a.title === b.title && a.type === b.type && a.size === b.size;
 };
+
+export const doOrder = createAsyncThunk<void, string, {state: { cart: ICartState }}>(
+  "cart/doOrder",
+  async (order, {getState}) => {
+    console.log(getState());
+    const res = await axios.post(
+      "https://62a08573a9866630f8112416.mockapi.io/orders",
+      {
+        data:order,
+        orders: getState().cart.items,
+      }
+    );
+    console.log(res);
+  }
+);
 
 export const CartSlice = createSlice({
   name: "cart",
@@ -38,7 +54,7 @@ export const CartSlice = createSlice({
       );
 
       if (foundItem) {
-        foundItem.count++;
+        foundItem.count += 1;
       } else {
         state.items.push(action.payload);
       }
@@ -52,6 +68,7 @@ export const CartSlice = createSlice({
       });
 
       localStorage.setItem("cartItems", JSON.stringify(state.items));
+      console.log("set items");
     },
     increment: (state, action: PayloadAction<CartItem>) => {
       const foundItem = state.items.find((item) =>
@@ -72,7 +89,7 @@ export const CartSlice = createSlice({
       );
 
       if (foundItem && foundItem.count > 1) {
-        foundItem.count--;
+        foundItem.count -= 1;
         state.amount -= 1;
         state.totalPrice -= foundItem.price;
       }
@@ -98,6 +115,18 @@ export const CartSlice = createSlice({
       state.totalPrice = 0;
       localStorage.clear();
     },
+  },
+  extraReducers: (builder) => {
+    builder
+      .addCase(doOrder.pending, (state) => {
+
+      })
+      .addCase(doOrder.fulfilled, (state, action) => {
+        localStorage.clear();
+      })
+      .addCase(doOrder.rejected, (state, action) => {
+        console.log(action.payload);
+      });
   },
 });
 

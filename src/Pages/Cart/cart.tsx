@@ -108,7 +108,7 @@ const Cart = () => {
             Total pizzas: <b>{amount} шт.</b>{" "}
           </span>
           <span>
-            Order price: <b>{totalPrice} ₽</b>{" "}
+            Order price: <b>{totalPrice} $</b>{" "}
           </span>
         </div>
         <div className={styles.bottom_buttons}>
@@ -131,9 +131,9 @@ const Cart = () => {
 
             <span>Go back</span>
           </Link>
-          <div className={styles.pay_btn}>
+          <Link to="/payment" className={styles.pay_btn}>
             <span>Buy now</span>
-          </div>
+          </Link>
         </div>
       </div>
     </div>

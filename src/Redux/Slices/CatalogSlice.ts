@@ -22,16 +22,18 @@ export const fetchItems = createAsyncThunk<
   undefined,
   { state: { catalog: ICatalogState } }
 >("catalog/fetchItems", async (_, { getState }) => {
+  const catalog = getState().catalog;
+
   const response = await axios.get(
     `https://62a08573a9866630f8112416.mockapi.io/items`,
     {
       params: {
         limit: 12,
-        page: getState().catalog.currentPage,
-        sortBy: getState().catalog.sortParam.value,
-        order: getState().catalog.sortParam.order,
-        // category: getState().catalog.activeCategory,
-        title: getState().catalog.searchValue,
+        page: catalog.currentPage,
+        sortBy: catalog.sortParam.value,
+        order: catalog.sortParam.order,
+        // category: catalog.activeCategory,
+        title: catalog.searchValue,
       },
     }
   );

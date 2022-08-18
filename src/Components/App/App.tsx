@@ -5,6 +5,7 @@ import Header from "../Header/header";
 import Catalog from "../../Pages/Catalog/catalog";
 import Cart from "../../Pages/Cart/cart";
 import WrongPage from "../../Pages/WrongPage/wrongPage";
+import Payment from "../../Pages/Payment/payment";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Catalog />} />
           <Route path="/cart" element={<Cart />} />
+          <Route path="/payment" element={<Payment />} />
           <Route path="*" element={<WrongPage />} />
         </Routes>
       </div>
